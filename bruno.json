@@ -1,0 +1,9 @@
+{
+  "version": "1",
+  "name": "BrunoStudiesAPI",
+  "type": "collection",
+  "ignore": [
+    "node_modules",
+    ".git"
+  ]
+}
