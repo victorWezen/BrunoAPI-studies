@@ -1,0 +1,32 @@
+meta {
+  name: Generate Token
+  type: http
+  seq: 1
+}
+
+post {
+  url: https://airportgap.com/api/tokens
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+      "email": "test@airportgap.com",
+      "password": "airportgappassword"
+  }
+}
+
+vars:post-response {
+  : 
+}
+
+assert {
+  res.body: isJson
+  res.status: eq 200
+  res.body.token: isNotEmpty
+}
+
+script:post-response {
+   bru.setEnvVar("token", res.body.token)
+}

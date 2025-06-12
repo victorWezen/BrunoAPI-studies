@@ -1,0 +1,17 @@
+meta {
+  name: List-Guiana-Airport
+  type: http
+  seq: 4
+}
+
+get {
+  url: https://airportgap.com/api/airports/GKA
+  body: none
+  auth: inherit
+}
+
+assert {
+  res.body: isJson
+  res.status: eq 200
+  res.body: isNotEmpty
+}

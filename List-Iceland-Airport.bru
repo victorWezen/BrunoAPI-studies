@@ -1,0 +1,18 @@
+meta {
+  name: List-Iceland-Airport
+  type: http
+  seq: 5
+}
+
+get {
+  url: https://airportgap.com/api/airports/RKV
+  body: none
+  auth: inherit
+}
+
+assert {
+  res.body: isJson
+  res.status: eq 200
+  res.body: isNotEmpty
+  res.body.data.attributes.name: eq Reykjavik Airport
+}

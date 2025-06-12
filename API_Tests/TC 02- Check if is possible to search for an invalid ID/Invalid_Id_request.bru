@@ -1,0 +1,15 @@
+meta {
+  name: Invalid_Id_request
+  type: http
+  seq: 4
+}
+
+get {
+  url: https://airportgap.com/api/airports/{{invalid_id}}
+  body: none
+  auth: inherit
+}
+
+assert {
+  res.status: eq 404
+}
